@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Parisienne&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+@import "./variables";
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $background-color;
+  color: $font-light;
+  font-family: $regular-font;
+}
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: $background-color;
+}
+
+.box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $main-color;
+  width: 85%;
+  height: 85%;
+  top: -5%;
+  -webkit-box-shadow: 1px 5px 26px 10px rgba(0, 0, 0, 0.2),
+    inset 0 0 0px 26px $main-color, inset 0 0 0px 30px $accent;
+  -moz-box-shadow: 1px 5px 26px 10px rgba(0, 0, 0, 0.2),
+    inset 0 0 0px 26px $main-color, inset 0 0 0px 30px $accent;
+  box-shadow: 1px 5px 26px 10px rgba(0, 0, 0, 0.2),
+    inset 0 0 0px 26px $main-color, inset 0 0 0px 30px $accent;
+}
+
+path.a,
+path.b {
+  stroke: $font-dark;
+  fill: none;
+  stroke-width: 14px;
+}
+
+path {
+  stroke-linejoin: bevel;
+  stroke-linecap: butt;
+}
+
+.cls-1 {
+  fill: none;
+  stroke: $accent;
+  stroke-width: 5px;
+}
+
+.proj {
+  & > path.a,
+  path.b {
+    stroke-width: 8px;
+  }
+}
+
+@import "./nav";
+@import "./home";
+@import "./about";

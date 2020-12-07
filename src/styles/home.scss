@@ -1,0 +1,52 @@
+.box.home-box {
+  flex-flow: row nowrap;
+}
+
+.home__deer-bg {
+  display: inline-block;
+  width: 25rem;
+  height: 25rem;
+  background-color: $light-element;
+  transform: rotate(45deg);
+}
+
+.home__deer-bg-border {
+  position: absolute;
+  display: inline-block;
+  width: 27rem;
+  height: 27rem;
+  border: 2px $light-element solid;
+  transform: rotate(45deg);
+}
+
+.home__deer-container {
+  position: absolute;
+  z-index: 5;
+  margin-bottom: 11.3rem;
+  width: 33rem;
+  height: 33rem;
+  overflow: hidden;
+  transform: rotate(45deg);
+}
+
+.home__deer-box {
+  position: relative;
+  transform: rotate(-45deg);
+}
+
+.home__deer {
+  margin-top: 2rem;
+  left: -30%;
+  position: absolute;
+  width: 30rem;
+}
+
+.home__title {
+  position: absolute;
+  width: 25rem;
+  z-index: 10;
+
+  & > path {
+    stroke-width: 17px;
+  }
+}
