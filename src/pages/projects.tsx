@@ -3,6 +3,7 @@ import React from "react"
 import Nav from "../components/nav"
 
 export default function Projects() {
+  const Title = require("../images/projects-title.inline.svg")
   return (
     <div className="page projects">
       <Nav
@@ -11,7 +12,9 @@ export default function Projects() {
         right={{ to: "/contact/" }}
         bottom={{ to: "/" }}
       />
-      <div className="box projects-box"></div>
+      <div className="box projects-box">
+        <Title className="projects__title" />
+      </div>
     </div>
   )
 }

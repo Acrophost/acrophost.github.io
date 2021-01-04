@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Parisienne&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import "./variables";
 
 *,
@@ -16,7 +16,7 @@ body {
 body {
   margin: 0;
   padding: 0;
-  background-color: $background-color;
+  background: $background-color;
   color: $font-light;
   font-family: $regular-font;
 }
@@ -27,7 +27,7 @@ body {
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background-color: $background-color;
+  background: $background-color;
 }
 
 .box {
@@ -35,7 +35,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $main-color;
+  background: $main-color;
   width: 85%;
   height: 85%;
   top: -5%;
@@ -75,3 +75,5 @@ path {
 @import "./nav";
 @import "./home";
 @import "./about";
+@import "./projects";
+@import "./contact";

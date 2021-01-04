@@ -1,0 +1,11 @@
+.projects__title {
+  & > path {
+    stroke: $font-light;
+  }
+
+  .c {
+    fill: $font-light;
+  }
+
+  width: 25rem;
+}
