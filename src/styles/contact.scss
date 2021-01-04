@@ -1,0 +1,120 @@
+.contact-box {
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
+.contact__title {
+  & > path,
+  & > circle {
+    stroke: $font-light;
+  }
+
+  & > circle {
+    fill: $font-light;
+  }
+
+  width: 35rem;
+  margin-bottom: 1rem;
+  position: absolute;
+  z-index: 10;
+  top: 10%;
+}
+
+.contact__text {
+  width: 30%;
+  margin: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  line-height: 50%;
+  padding-top: 2rem;
+}
+
+.contact__form {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background: $accent;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  .contact__form-border {
+    top: 26px;
+    right: 26px;
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 2 * 26px);
+    border: 4px solid $main-color;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+  }
+}
+
+#contact-form {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: stretch;
+  z-index: 20;
+}
+
+.contact__form-field {
+  border: none;
+  width: 30rem;
+  border-bottom: 2px solid $accent-light;
+  background: scale-color($light-element, $alpha: -80%);
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  cursor: text;
+
+  &::placeholder {
+    font-size: 1rem;
+    color: scale-color($font-light, $alpha: -40%);
+    font-family: $placeholder-font;
+  }
+}
+
+.contact__form-submit {
+  align-self: center;
+  width: 40%;
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  font-family: $placeholder-font;
+  background-color: $light-element;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.contact__text-sm {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 1rem;
+}
+
+.contact__sm {
+  & > .icon {
+    width: 4rem;
+    margin-bottom: 0.5rem;
+    path {
+      fill: $font-light;
+    }
+  }
+
+  & > .lin {
+    width: 3.5rem;
+  }
+
+  margin-top: 2rem;
+  color: $font-light;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
