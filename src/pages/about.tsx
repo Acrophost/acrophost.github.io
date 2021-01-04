@@ -3,7 +3,7 @@ import React from "react"
 import Nav from "../components/nav"
 
 export default function About() {
-  const Title = require("../images/who.inline.svg")
+  const Title = require("../images/about-title.inline.svg")
 
   return (
     <div className="page about">
@@ -17,15 +17,27 @@ export default function About() {
         <div className="about__image"></div>
         <div className="about__description">
           <Title className="about__title" />
-          <p>24 year old frontend developer from Poland</p>
-          <p>Passionate about creating esthetic websites and petting dogs</p>
-          <p>Currently in search for a job</p>
           <p>
-            If you have any interesting opportunities or just want to say hello,
-            you can find me here:
+            My name is Anna Piasecka and I'm a 24 year old Front-end developer
+            from Poland.
           </p>
-          <div></div>
-          <p>Or use contact page</p>
+          <p>
+            I'm passionate about creating esthetic websites and petting cute
+            dogs.
+          </p>
+          <div className="about__technologies">
+            <h3>What can I work with?</h3>
+            <p>HTML</p>
+            <p>CSS</p>
+            <p>SASS</p>
+            <p>JS</p>
+            <p>ReactJS</p>
+            <p>Redux</p>
+            <p>Webpack</p>
+            <p>Adobe Photoshop</p>
+            <p>Adobe Illustrator</p>
+            <p>Git</p>
+          </div>
         </div>
       </div>
     </div>
