@@ -2,23 +2,6 @@
   flex-flow: row nowrap;
 }
 
-.home__deer-bg {
-  display: inline-block;
-  width: 25rem;
-  height: 25rem;
-  background-color: $light-element;
-  transform: rotate(45deg);
-}
-
-.home__deer-bg-border {
-  position: absolute;
-  display: inline-block;
-  width: 27rem;
-  height: 27rem;
-  border: 2px $light-element solid;
-  transform: rotate(45deg);
-}
-
 .home__deer-container {
   position: absolute;
   z-index: 5;
@@ -36,17 +19,42 @@
 
 .home__deer {
   margin-top: 2rem;
-  left: -30%;
+  left: -31.5%;
   position: absolute;
-  width: 30rem;
-}
+  width: 31rem;
 
-.home__title {
-  position: absolute;
-  width: 25rem;
-  z-index: 10;
-
-  & > path {
-    stroke-width: 17px;
+  .d,
+  .e,
+  .f {
+    fill: none;
+  }
+  .ba {
+    stroke-width: 3px;
+    stroke: $light-element;
+    fill: $light-element;
+  }
+  .bb {
+    fill: $light-element;
+  }
+  .d,
+  .e,
+  .f {
+    stroke-linecap: round;
+  }
+  .d {
+    stroke-linejoin: bevel;
+    stroke: $accent;
+    stroke-width: 5px;
+  }
+  .e,
+  .f {
+    stroke: $font-dark;
+    stroke-width: 8px;
+  }
+  .e {
+    stroke-miterlimit: 10;
+  }
+  .f {
+    stroke-linejoin: round;
   }
 }
