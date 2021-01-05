@@ -1,4 +1,5 @@
 import React from "react"
+import { Helmet } from "react-helmet"
 
 import Nav from "../components/nav"
 
@@ -7,6 +8,10 @@ export default function About() {
 
   return (
     <div className="page about">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Anna Piasecka || Portfolio || About</title>
+      </Helmet>
       <Nav
         element="about"
         left={{ to: "/contact/" }}

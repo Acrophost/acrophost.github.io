@@ -69,12 +69,14 @@
   background: scale-color($light-element, $alpha: -80%);
   padding: 0.5rem;
   margin-bottom: 0.5rem;
+  resize: none;
   cursor: text;
+  color: scale-color($font-light, $alpha: -20%);
+  font-size: 1rem;
+  font-family: $placeholder-font;
 
   &::placeholder {
-    font-size: 1rem;
-    color: scale-color($font-light, $alpha: -40%);
-    font-family: $placeholder-font;
+    color: scale-color($font-light, $alpha: -70%);
   }
 }
 
@@ -84,7 +86,7 @@
   margin-top: 0.5rem;
   font-size: 1.1rem;
   font-family: $placeholder-font;
-  background-color: $light-element;
+  background: $light-element;
   outline: none;
   border: none;
   cursor: pointer;

@@ -1,4 +1,5 @@
 import React from "react"
+import { Helmet } from "react-helmet"
 
 import Nav from "../components/nav"
 
@@ -13,6 +14,10 @@ export default function Projects() {
         bottom={{ to: "/" }}
       />
       <div className="box projects-box">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Anna Piasecka || Portfolio || Projects</title>
+        </Helmet>
         <Title className="projects__title" />
       </div>
     </div>

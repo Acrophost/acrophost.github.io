@@ -1,4 +1,5 @@
 import React from "react"
+import { Helmet } from "react-helmet"
 
 import Nav from "../components/nav"
 
@@ -52,6 +53,10 @@ export default class Contact extends React.Component<
 
     return (
       <div className="page contact">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Anna Piasecka || Portfolio || Contact</title>
+        </Helmet>
         <Nav
           element="contact"
           left={{ to: "/" }}

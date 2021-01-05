@@ -8,12 +8,24 @@ module.exports = {
   /* Your site config here */
   plugins: [
     `gatsby-plugin-sass`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
           include: /\.inline\.svg$/,
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "Anna Piasecka || Portfolio",
+        short_name: "AP - Portfolio",
+        start_url: "/",
+        display: "standalone",
+        icon: "src/images/icon.png",
+        crossOrigin: `use-credentials`,
       },
     },
   ],
