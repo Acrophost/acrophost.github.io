@@ -5,7 +5,7 @@ import Nav from "../components/nav"
 
 export default function About() {
   const Title = require("../images/about-title.inline.svg")
-  const MyImage = require("../images/itwasmedio.jpg")
+  const MyImage = require("../images/itwasmedio.svg")
 
   return (
     <div className="page about">

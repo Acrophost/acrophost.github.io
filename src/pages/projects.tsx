@@ -4,9 +4,9 @@ import { Helmet } from "react-helmet"
 import Nav from "../components/nav"
 
 export default function Projects() {
-  const ProjImg1 = require("../images/proj1.png")
-  const ProjImg2 = require("../images/proj2.png")
-  const ProjImg3 = require("../images/proj3.png")
+  const ProjImg1 = require("../images/proj1.svg")
+  const ProjImg2 = require("../images/proj2.svg")
+  const ProjImg3 = require("../images/proj3.svg")
 
   const Title = require("../images/projects-title.inline.svg")
 
