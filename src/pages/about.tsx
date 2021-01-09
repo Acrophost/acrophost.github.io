@@ -5,6 +5,7 @@ import Nav from "../components/nav"
 
 export default function About() {
   const Title = require("../images/about-title.inline.svg")
+  const MyImage = require("../images/itwasmedio.jpg")
 
   return (
     <div className="page about">
@@ -19,7 +20,13 @@ export default function About() {
         bottom={{ to: "/projects/" }}
       />
       <div className="box about-box">
-        <div className="about__image"></div>
+        <div className="about__image-container">
+          <img
+            src={MyImage}
+            alt="Woman in red shirt"
+            className="about__image"
+          />
+        </div>
         <div className="about__description">
           <Title className="about__title" />
           <p>
