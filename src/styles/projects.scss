@@ -1,3 +1,7 @@
+.projects-box {
+  flex-flow: column nowrap;
+}
+
 .projects__title {
   & > path {
     stroke: $font-light;
@@ -8,4 +12,70 @@
   }
 
   width: 25rem;
+}
+
+.projects__panel {
+  height: 40%;
+  width: 65%;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 2rem;
+}
+
+.projects__tile {
+  width: 16rem;
+  height: 16rem;
+  background: $light-element;
+  position: relative;
+  margin: 0 0.2rem;
+  padding: 0;
+}
+
+.projects__tile-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.projects__tile-overlay {
+  display: none;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  text-align: center;
+  overflow: hidden;
+  background: scale-color($accent-light, $alpha: -30%);
+}
+
+.projects__tile:hover .projects__tile-overlay {
+  display: flex;
+}
+
+.projects__tile-technologies {
+  width: 90%;
+}
+
+.projects__tile-links {
+  display: flex;
+  flex-flow: column nowrap;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.projects__tile-live,
+.projects__tile-code {
+  color: scale-color($accent, $lightness: 85%);
+  font-weight: bold;
+  padding: 0.1rem;
+
+  &:hover {
+    color: $font-dark;
+  }
 }
