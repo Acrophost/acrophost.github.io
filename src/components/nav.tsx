@@ -125,7 +125,7 @@ export default class Nav extends React.Component<
         <nav className="nav">
           <div className="nav__left">
             <div className="nav__left-back"></div>
-            <Link className="nav__left-link" to={this.props.left.to}>
+            <Link className="nav__left-link" to={this.state.left.to}>
               {this.props.element === "about" && this.state.width > 541 && (
                 <this.Contact className="nav__side-text" />
               )}
@@ -153,7 +153,7 @@ export default class Nav extends React.Component<
           </div>
           <div className="nav__right">
             <div className="nav__right-back"></div>
-            <Link className="nav__right-link" to={this.props.right.to}>
+            <Link className="nav__right-link" to={this.state.right.to}>
               {this.props.element === "about" && this.state.width > 541 && (
                 <this.Home className="nav__side-text" />
               )}
@@ -175,7 +175,7 @@ export default class Nav extends React.Component<
           </div>
           <div className="nav__bottom">
             <div className="nav__bottom-back"></div>
-            <Link className="nav__bottom-link" to={this.props.bottom.to}>
+            <Link className="nav__bottom-link" to={this.state.bottom.to}>
               {this.props.element === "projects" && this.state.width > 541 && (
                 <this.HomeH className="nav__bottom-text hm" />
               )}
