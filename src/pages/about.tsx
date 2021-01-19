@@ -4,11 +4,6 @@ import { Helmet } from "react-helmet"
 import Nav from "../components/nav"
 
 export default function About() {
-  const width =
-    window.innerWidth ||
-    document.documentElement.clientWidth ||
-    document.body.clientWidth
-
   const Title = require("../images/about-title.inline.svg")
   const MyImage = require("../images/itwasmedio.svg")
 
