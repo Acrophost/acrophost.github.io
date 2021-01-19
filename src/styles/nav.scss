@@ -1,9 +1,21 @@
+.nav {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 [class*="nav"] {
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 30;
+}
+
+.nav__button {
+  display: none;
 }
 
 .nav__bottom {
@@ -31,19 +43,20 @@
   text-orientation: upright;
 }
 
-.nav__bottom-link {
-  position: relative;
-  background: $light-element;
-  cursor: pointer;
-  width: 22rem;
-  height: 4rem;
-}
-
+.nav__bottom-link,
 .nav__right-link,
 .nav__left-link {
   position: relative;
   background: $light-element;
   cursor: pointer;
+}
+
+.nav__bottom-link {
+  width: 22rem;
+  height: 4rem;
+}
+.nav__right-link,
+.nav__left-link {
   width: 4rem;
   height: 22rem;
 }
@@ -85,4 +98,195 @@
 
 .hm {
   height: 90%;
+}
+
+@media (max-width: 1024px) {
+  .nav__right-link,
+  .nav__right-back {
+    margin-right: 2rem;
+  }
+
+  .nav__left-link,
+  .nav__left-back {
+    margin-left: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav__right-link,
+  .nav__right-back {
+    margin-right: 1.5rem;
+  }
+
+  .nav__left-link,
+  .nav__left-back {
+    margin-left: 1.5rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .nav {
+    display: none;
+    background: $accent;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav_showed {
+    display: flex;
+  }
+
+  .nav__button {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    position: absolute;
+    width: 3.5rem;
+    height: 3.5rem;
+    outline: none;
+    border: none;
+    top: 0;
+    left: 0;
+    margin: 1.5rem 0 0 1.5rem;
+    background: $light-element;
+    transform: rotate(45deg);
+    cursor: pointer;
+    z-index: 45;
+    transition: all 0.5s linear;
+  }
+
+  .opened_nav {
+    left: 50%;
+    margin-left: -1.75rem;
+    transform: rotate(-90deg);
+    transition: all 0.5s linear;
+
+    & > .nav__burger-box > .nav__burger {
+      &::before {
+        transform: rotate(90deg);
+        transition: all 0.5s linear;
+      }
+      &::after {
+        transform: rotate(90deg);
+        transition: all 0.5s linear;
+      }
+    }
+  }
+
+  .nav__button-border {
+    width: 3rem;
+    height: 3rem;
+    border: 2px $accent solid;
+  }
+
+  .nav__burger-box {
+    transform: rotate(-45deg);
+    position: relative;
+    background: red;
+  }
+
+  .nav__burger {
+    height: 4px;
+    width: 2.5rem;
+    background: $main-color;
+    position: relative;
+
+    &::before {
+      height: 4px;
+      width: 1.5rem;
+      background: $main-color;
+      content: "";
+      position: absolute;
+      margin-top: -1.25rem;
+      transition: all 0.5s linear;
+    }
+
+    &::after {
+      height: 4px;
+      width: 1.5rem;
+      background: $main-color;
+      content: "";
+      position: absolute;
+      margin-top: 1.25rem;
+      transition: all 0.5s linear;
+    }
+  }
+
+  .nav__right-back,
+  .nav__left-back,
+  .nav__bottom-back {
+    background: $main-color;
+    margin: 0;
+    height: 120vw;
+    width: 5rem;
+  }
+
+  .nav__bottom-back {
+    width: 120vw;
+    height: 5rem;
+  }
+
+  .nav__right-back,
+  .nav__left-back {
+    transform: rotate(-88deg);
+  }
+
+  .nav__left,
+  .nav__right,
+  .nav__bottom {
+    width: 100vw;
+    height: 25%;
+    position: relative;
+    left: 0;
+  }
+
+  .nav__bottom-link,
+  .nav__right-link,
+  .nav__left-link {
+    width: 100%;
+    height: 4rem;
+    margin: 0;
+  }
+
+  .nav__side-text,
+  .nav__bottom-text {
+    height: 140%;
+    width: auto;
+  }
+
+  .nav__side-text,
+  .nav__bottom-text {
+    margin: 0;
+  }
+
+  .ct {
+    height: 85%;
+    margin-left: 30%;
+  }
+
+  .hm {
+    height: 110%;
+    margin-left: -30%;
+  }
+
+  .ab {
+    height: 110%;
+    margin-left: -30%;
+    margin-bottom: 1rem;
+  }
+
+  .abb {
+    height: 110%;
+  }
+
+  .proj > path.a,
+  .proj > path.b {
+    stroke-width: 10px;
+  }
 }

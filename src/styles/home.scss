@@ -1,26 +1,4 @@
-.box.home-box {
-  flex-flow: row nowrap;
-}
-
-.home__deer-container {
-  position: absolute;
-  z-index: 5;
-  margin-bottom: 11.3rem;
-  width: 33rem;
-  height: 33rem;
-  overflow: hidden;
-  transform: rotate(45deg);
-}
-
-.home__deer-box {
-  position: relative;
-  transform: rotate(-45deg);
-}
-
 .home__deer {
-  margin-top: 2rem;
-  left: -31.5%;
-  position: absolute;
   width: 31rem;
 
   .d,
@@ -56,5 +34,26 @@
   }
   .f {
     stroke-linejoin: round;
+  }
+}
+
+@media (max-width: 540px) {
+  .home__deer {
+    width: 75vw;
+    margin-top: 0;
+    left: 0;
+  }
+
+  .home__deer-container {
+    margin-bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 280px) {
+  .home-box {
+    min-height: 100%;
+    top: 0;
   }
 }

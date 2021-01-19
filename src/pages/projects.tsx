@@ -4,6 +4,11 @@ import { Helmet } from "react-helmet"
 import Nav from "../components/nav"
 
 export default function Projects() {
+  const width =
+    window.innerWidth ||
+    document.documentElement.clientWidth ||
+    document.body.clientWidth
+
   const ProjImg1 = require("../images/proj1.svg")
   const ProjImg2 = require("../images/proj2.svg")
   const ProjImg3 = require("../images/proj3.svg")
@@ -16,6 +21,7 @@ export default function Projects() {
 
   const projects = [
     {
+      key: 0,
       src: ProjImg1,
       alt: "Landing page with a poppy",
       title: "My old portfolio",
@@ -25,44 +31,54 @@ export default function Projects() {
       empty: 0,
     },
     {
+      key: 1,
       src: ProjImg3,
       alt: "White square with red deer outline",
-      title: "Current portfolio (you're here!)",
+      title: "Current portfolio",
       technologies: "Gatsby // ReactJS // TypeScript // SCSS",
       live: "https://acrophost.github.io/",
       code: "https://github.com/Acrophost/portfolio-2",
       empty: 0,
     },
     {
+      key: 2,
       src: ProjImg2,
       alt: "Page with antique shadows",
       title: "The Antique House",
       technologies: "Create React App // ReactJS // TypeScript // SCSS",
-      live: "",
+      live: "https://acrophost.github.io/antique-shop/",
       code: "https://github.com/Acrophost/antique-shop",
       empty: 0,
     },
     {
+      key: 3,
       src: "",
       alt: "",
       title: "In progress",
-      technologies: "There is nothing here yet!",
+      technologies: "Stay tuned for more! :)",
       live: "",
       code: "",
       empty: 1,
     },
   ]
 
-  let current = 0
-
   return (
     <div className="page projects">
-      <Nav
-        element="projects"
-        left={{ to: "/about/" }}
-        right={{ to: "/contact/" }}
-        bottom={{ to: "/" }}
-      />
+      {width > 541 ? (
+        <Nav
+          element="projects"
+          left={{ to: "/about/" }}
+          right={{ to: "/contact/" }}
+          bottom={{ to: "/" }}
+        />
+      ) : (
+        <Nav
+          element="projects"
+          left={{ to: "/" }}
+          right={{ to: "/contact/" }}
+          bottom={{ to: "/about/" }}
+        />
+      )}
       <div className="box projects-box">
         <Helmet>
           <meta charSet="utf-8" />
@@ -81,20 +97,22 @@ export default function Projects() {
                   />
                 )}
                 <div className="projects__tile-overlay">
-                  <h3 className="projects__tile-title">{obj.title}</h3>
-                  <div className="projects__tile-technologies">
-                    {obj.technologies}
-                  </div>
-                  {!obj.empty && (
-                    <div className="projects__tile-links">
-                      <a href={obj.live} className="projects__tile-live">
-                        See preview
-                      </a>
-                      <a href={obj.code} className="projects__tile-code">
-                        See code
-                      </a>
+                  <div className="projects__tile-box">
+                    <h3 className="projects__tile-title">{obj.title}</h3>
+                    <div className="projects__tile-technologies">
+                      {obj.technologies}
                     </div>
-                  )}
+                    {!obj.empty && (
+                      <div className="projects__tile-links">
+                        <a href={obj.live} className="projects__tile-live">
+                          See preview
+                        </a>
+                        <a href={obj.code} className="projects__tile-code">
+                          See code
+                        </a>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             )

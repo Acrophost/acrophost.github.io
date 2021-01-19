@@ -19,11 +19,7 @@ export default function Home() {
         bottom={{ to: "/projects/" }}
       />
       <div className="box home-box">
-        <div className="home__deer-container">
-          <div className="home__deer-box">
-            <Deer className="home__deer" />
-          </div>
-        </div>
+        <Deer className="home__deer" />
       </div>
     </div>
   )

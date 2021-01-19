@@ -4,6 +4,11 @@ import { Helmet } from "react-helmet"
 import Nav from "../components/nav"
 
 export default function About() {
+  const width =
+    window.innerWidth ||
+    document.documentElement.clientWidth ||
+    document.body.clientWidth
+
   const Title = require("../images/about-title.inline.svg")
   const MyImage = require("../images/itwasmedio.svg")
 
@@ -13,12 +18,21 @@ export default function About() {
         <meta charSet="utf-8" />
         <title>Anna Piasecka || Portfolio || About</title>
       </Helmet>
-      <Nav
-        element="about"
-        left={{ to: "/contact/" }}
-        right={{ to: "/" }}
-        bottom={{ to: "/projects/" }}
-      />
+      {width > 541 ? (
+        <Nav
+          element="about"
+          left={{ to: "/contact/" }}
+          right={{ to: "/" }}
+          bottom={{ to: "/projects/" }}
+        />
+      ) : (
+        <Nav
+          element="about"
+          left={{ to: "/" }}
+          right={{ to: "/contact/" }}
+          bottom={{ to: "/projects/" }}
+        />
+      )}
       <div className="box about-box">
         <div className="about__image-container">
           <img

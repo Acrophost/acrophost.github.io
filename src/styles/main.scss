@@ -38,6 +38,7 @@ body {
   background: $main-color;
   width: 85%;
   height: 85%;
+  padding: 1.5rem;
   top: -5%;
   -webkit-box-shadow: 1px 5px 26px 10px rgba(0, 0, 0, 0.2),
     inset 0 0 0px 26px $main-color, inset 0 0 0px 30px $accent;
@@ -69,6 +70,39 @@ path {
   & > path.a,
   path.b {
     stroke-width: 8px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .box {
+    width: 80%;
+    height: 87%;
+  }
+}
+
+@media (max-width: 768px), (max-width: 1024px) and (min-height: 1366px) {
+  .box {
+    width: 78%;
+    min-height: 87%;
+  }
+}
+
+@media (max-width: 540px) {
+  .box {
+    top: 0;
+    width: 100%;
+    min-height: 100%;
+  }
+
+  .page {
+    min-height: 100%;
+  }
+}
+
+@media (max-width: 280px) {
+  .box {
+    top: 10%;
+    min-height: 120%;
   }
 }
 
