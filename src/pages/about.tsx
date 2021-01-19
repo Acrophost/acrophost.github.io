@@ -18,21 +18,7 @@ export default function About() {
         <meta charSet="utf-8" />
         <title>Anna Piasecka || Portfolio || About</title>
       </Helmet>
-      {width > 541 ? (
-        <Nav
-          element="about"
-          left={{ to: "/contact/" }}
-          right={{ to: "/" }}
-          bottom={{ to: "/projects/" }}
-        />
-      ) : (
-        <Nav
-          element="about"
-          left={{ to: "/" }}
-          right={{ to: "/contact/" }}
-          bottom={{ to: "/projects/" }}
-        />
-      )}
+      <Nav element="about" />
       <div className="box about-box">
         <div className="about__image-container">
           <img

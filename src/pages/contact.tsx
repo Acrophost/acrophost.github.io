@@ -57,12 +57,7 @@ export default class Contact extends React.Component<
           <meta charSet="utf-8" />
           <title>Anna Piasecka || Portfolio || Contact</title>
         </Helmet>
-        <Nav
-          element="contact"
-          left={{ to: "/" }}
-          right={{ to: "/about/" }}
-          bottom={{ to: "/projects/" }}
-        />
+        <Nav element="contact" />
         <div className="box contact-box">
           <Title className="contact__title" />
           <div className="contact__text">

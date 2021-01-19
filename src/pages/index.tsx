@@ -12,12 +12,7 @@ export default function Home() {
         <meta charSet="utf-8" />
         <title>Anna Piasecka || Portfolio</title>
       </Helmet>
-      <Nav
-        element="home"
-        left={{ to: "/about/" }}
-        right={{ to: "/contact/" }}
-        bottom={{ to: "/projects/" }}
-      />
+      <Nav element="home" />
       <div className="box home-box">
         <Deer className="home__deer" />
       </div>

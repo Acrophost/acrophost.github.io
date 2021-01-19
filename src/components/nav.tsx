@@ -4,16 +4,23 @@ import { Link } from "gatsby"
 export default class Nav extends React.Component<
   {
     element: string
+  },
+  {
+    width: number
     left: { to: string }
     right: { to: string }
     bottom: { to: string }
-  },
-  { width: number }
+  }
 > {
   constructor(props) {
     super(props)
 
-    this.state = { width: 0 }
+    this.state = {
+      width: 0,
+      left: { to: "" },
+      right: { to: "" },
+      bottom: { to: "" },
+    }
   }
 
   componentDidMount() {
@@ -23,6 +30,68 @@ export default class Nav extends React.Component<
         document.documentElement.clientWidth ||
         document.body.clientWidth,
     })
+
+    if (this.props.element === "home") {
+      this.setState({
+        left: { to: "/about/" },
+        right: { to: "/contact/" },
+        bottom: { to: "/projects/" },
+      })
+    }
+
+    if (this.state.width > 541) {
+      switch (this.props.element) {
+        case "about":
+          this.setState({
+            left: { to: "/contact/" },
+            right: { to: "/" },
+            bottom: { to: "/projects/" },
+          })
+          return
+        case "contact":
+          this.setState({
+            left: { to: "/" },
+            right: { to: "/about/" },
+            bottom: { to: "/projects/" },
+          })
+          return
+        case "projects":
+          this.setState({
+            left: { to: "/about/" },
+            right: { to: "/contact/" },
+            bottom: { to: "/" },
+          })
+          return
+        default:
+          return
+      }
+    } else {
+      switch (this.props.element) {
+        case "about":
+          this.setState({
+            left: { to: "/" },
+            right: { to: "/contact/" },
+            bottom: { to: "/projects/" },
+          })
+          return
+        case "contact":
+          this.setState({
+            left: { to: "/" },
+            right: { to: "/about/" },
+            bottom: { to: "/projects/" },
+          })
+          return
+        case "projects":
+          this.setState({
+            left: { to: "/" },
+            right: { to: "/contact/" },
+            bottom: { to: "/about/" },
+          })
+          return
+        default:
+          return
+      }
+    }
   }
 
   About = require("../images/about.inline.svg")

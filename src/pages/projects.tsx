@@ -4,11 +4,6 @@ import { Helmet } from "react-helmet"
 import Nav from "../components/nav"
 
 export default function Projects() {
-  const width =
-    window.innerWidth ||
-    document.documentElement.clientWidth ||
-    document.body.clientWidth
-
   const ProjImg1 = require("../images/proj1.svg")
   const ProjImg2 = require("../images/proj2.svg")
   const ProjImg3 = require("../images/proj3.svg")
@@ -64,21 +59,7 @@ export default function Projects() {
 
   return (
     <div className="page projects">
-      {width > 541 ? (
-        <Nav
-          element="projects"
-          left={{ to: "/about/" }}
-          right={{ to: "/contact/" }}
-          bottom={{ to: "/" }}
-        />
-      ) : (
-        <Nav
-          element="projects"
-          left={{ to: "/" }}
-          right={{ to: "/contact/" }}
-          bottom={{ to: "/about/" }}
-        />
-      )}
+      <Nav element="projects" />
       <div className="box projects-box">
         <Helmet>
           <meta charSet="utf-8" />
