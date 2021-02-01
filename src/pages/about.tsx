@@ -3,9 +3,18 @@ import { Helmet } from "react-helmet"
 
 import Nav from "../components/nav"
 
-export default function About() {
+const About = () => {
   const Title = require("../images/about-title.inline.svg")
   const MyImage = require("../images/itwasmedio.svg")
+
+  const NavProps = {
+    leftS: { to: "/" },
+    rightS: { to: "/contact/" },
+    bottomS: { to: "/projects/" },
+    left: { to: "/contact/" },
+    right: { to: "/" },
+    bottom: { to: "/projects/" },
+  }
 
   return (
     <div className="page about">
@@ -13,7 +22,15 @@ export default function About() {
         <meta charSet="utf-8" />
         <title>Anna Piasecka || Portfolio || About</title>
       </Helmet>
-      <Nav element="about" />
+      <Nav
+        element="about"
+        leftS={NavProps.leftS}
+        rightS={NavProps.rightS}
+        bottomS={NavProps.bottomS}
+        left={NavProps.left}
+        right={NavProps.right}
+        bottom={NavProps.bottom}
+      />
       <div className="box about-box">
         <div className="about__image-container">
           <img
@@ -50,3 +67,5 @@ export default function About() {
     </div>
   )
 }
+
+export default About

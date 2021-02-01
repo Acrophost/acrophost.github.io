@@ -3,16 +3,21 @@ import { Helmet } from "react-helmet"
 
 import Nav from "../components/nav"
 
-export default function Projects() {
+const Projects = () => {
   const ProjImg1 = require("../images/proj1.svg")
   const ProjImg2 = require("../images/proj2.svg")
   const ProjImg3 = require("../images/proj3.svg")
 
   const Title = require("../images/projects-title.inline.svg")
 
-  console.log(ProjImg1)
-  console.log(ProjImg2)
-  console.log(ProjImg3)
+  const NavProps = {
+    leftS: { to: "/" },
+    rightS: { to: "/contact/" },
+    bottomS: { to: "/about/" },
+    left: { to: "/about/" },
+    right: { to: "/contact/" },
+    bottom: { to: "/" },
+  }
 
   const projects = [
     {
@@ -59,7 +64,15 @@ export default function Projects() {
 
   return (
     <div className="page projects">
-      <Nav element="projects" />
+      <Nav
+        element="projects"
+        leftS={NavProps.leftS}
+        rightS={NavProps.rightS}
+        bottomS={NavProps.bottomS}
+        left={NavProps.left}
+        right={NavProps.right}
+        bottom={NavProps.bottom}
+      />
       <div className="box projects-box">
         <Helmet>
           <meta charSet="utf-8" />
@@ -103,3 +116,5 @@ export default function Projects() {
     </div>
   )
 }
+
+export default Projects

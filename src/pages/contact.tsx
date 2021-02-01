@@ -51,13 +51,30 @@ export default class Contact extends React.Component<
     const LinkedIn = require("../images/linkedin.inline.svg")
     const Git = require("../images/github.inline.svg")
 
+    const NavProps = {
+      leftS: { to: "/" },
+      rightS: { to: "/about/" },
+      bottomS: { to: "/projects/" },
+      left: { to: "/" },
+      right: { to: "/about/" },
+      bottom: { to: "/projects/" },
+    }
+
     return (
       <div className="page contact">
         <Helmet>
           <meta charSet="utf-8" />
           <title>Anna Piasecka || Portfolio || Contact</title>
         </Helmet>
-        <Nav element="contact" />
+        <Nav
+          element="contact"
+          leftS={NavProps.leftS}
+          rightS={NavProps.rightS}
+          bottomS={NavProps.bottomS}
+          left={NavProps.left}
+          right={NavProps.right}
+          bottom={NavProps.bottom}
+        />
         <div className="box contact-box">
           <Title className="contact__title" />
           <div className="contact__text">

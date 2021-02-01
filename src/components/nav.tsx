@@ -1,26 +1,32 @@
 import React from "react"
-import { Link } from "gatsby"
+import TransitionLink from "gatsby-plugin-transition-link"
+import gsap from "gsap"
 
 export default class Nav extends React.Component<
   {
     element: string
-  },
-  {
-    width: number
+    leftS: { to: string }
+    rightS: { to: string }
+    bottomS: { to: string }
     left: { to: string }
     right: { to: string }
     bottom: { to: string }
+  },
+  {
+    width: number
   }
 > {
   constructor(props) {
     super(props)
 
-    this.state = {
-      width: 0,
-      left: { to: "" },
-      right: { to: "" },
-      bottom: { to: "" },
-    }
+    this.state = { width: 0 }
+
+    this.animateRightOut = this.animateRightOut.bind(this)
+    this.animateLeftOut = this.animateLeftOut.bind(this)
+    this.animateTopOut = this.animateTopOut.bind(this)
+    this.animateLeftIn = this.animateLeftIn.bind(this)
+    this.animateRightIn = this.animateRightIn.bind(this)
+    this.animateBottomIn = this.animateBottomIn.bind(this)
   }
 
   componentDidMount() {
@@ -30,68 +36,42 @@ export default class Nav extends React.Component<
         document.documentElement.clientWidth ||
         document.body.clientWidth,
     })
+  }
 
-    if (this.props.element === "home") {
-      this.setState({
-        left: { to: "/about/" },
-        right: { to: "/contact/" },
-        bottom: { to: "/projects/" },
-      })
-    }
+  animateRightOut() {
+    const t1 = gsap.timeline()
+    t1.to(".box", { duration: 1.5, x: 3500, opacity: 0 })
+  }
 
-    if (this.state.width > 541) {
-      switch (this.props.element) {
-        case "about":
-          this.setState({
-            left: { to: "/contact/" },
-            right: { to: "/" },
-            bottom: { to: "/projects/" },
-          })
-          return
-        case "contact":
-          this.setState({
-            left: { to: "/" },
-            right: { to: "/about/" },
-            bottom: { to: "/projects/" },
-          })
-          return
-        case "projects":
-          this.setState({
-            left: { to: "/about/" },
-            right: { to: "/contact/" },
-            bottom: { to: "/" },
-          })
-          return
-        default:
-          return
-      }
-    } else {
-      switch (this.props.element) {
-        case "about":
-          this.setState({
-            left: { to: "/" },
-            right: { to: "/contact/" },
-            bottom: { to: "/projects/" },
-          })
-          return
-        case "contact":
-          this.setState({
-            left: { to: "/" },
-            right: { to: "/about/" },
-            bottom: { to: "/projects/" },
-          })
-          return
-        case "projects":
-          this.setState({
-            left: { to: "/" },
-            right: { to: "/contact/" },
-            bottom: { to: "/about/" },
-          })
-          return
-        default:
-          return
-      }
-    }
+  animateLeftOut() {
+    const t1 = gsap.timeline()
+    t1.to(".box", { duration: 1.5, x: -3500, opacity: 0 })
+  }
+
+  animateTopOut() {
+    const t1 = gsap.timeline()
+    t1.to(".box", { duration: 1.5, y: -2000, opacity: 0 })
+  }
+
+  animateLeftIn(node) {
+    return gsap.from(node.querySelectorAll(".box"), {
+      opacity: 0,
+      x: -3500,
+    })
+  }
+
+  animateRightIn(node) {
+    return gsap.from(node.querySelectorAll(".box"), {
+      opacity: 0,
+      x: 3500,
+    })
+  }
+
+  animateBottomIn(node) {
+    return gsap.from(node.querySelectorAll(".box"), {
+      opacity: 0,
+      y: 2000,
+    })
   }
 
   About = require("../images/about.inline.svg")
@@ -125,7 +105,23 @@ export default class Nav extends React.Component<
         <nav className="nav">
           <div className="nav__left">
             <div className="nav__left-back"></div>
-            <Link className="nav__left-link" to={this.state.left.to}>
+            <TransitionLink
+              className="nav__left-link"
+              to={
+                this.state.width > 541
+                  ? this.props.left.to
+                  : this.props.leftS.to
+              }
+              exit={{
+                trigger: ({ exit, e, node }) => this.animateRightOut(),
+                length: 1.5,
+              }}
+              entry={{
+                trigger: ({ entry, node }) => this.animateLeftIn(node),
+                length: 1.5,
+                delay: 0.5,
+              }}
+            >
               {this.props.element === "about" && this.state.width > 541 && (
                 <this.Contact className="nav__side-text" />
               )}
@@ -149,11 +145,27 @@ export default class Nav extends React.Component<
                 this.state.width <= 541 && (
                   <this.HomeH className="nav__side-text hm" />
                 )}
-            </Link>
+            </TransitionLink>
           </div>
           <div className="nav__right">
             <div className="nav__right-back"></div>
-            <Link className="nav__right-link" to={this.state.right.to}>
+            <TransitionLink
+              className="nav__right-link"
+              to={
+                this.state.width > 541
+                  ? this.props.right.to
+                  : this.props.rightS.to
+              }
+              exit={{
+                trigger: ({ exit, node }) => this.animateLeftOut(),
+                length: 1.5,
+              }}
+              entry={{
+                trigger: ({ entry, node }) => this.animateRightIn(node),
+                length: 1.5,
+                delay: 0.5,
+              }}
+            >
               {this.props.element === "about" && this.state.width > 541 && (
                 <this.Home className="nav__side-text" />
               )}
@@ -171,11 +183,27 @@ export default class Nav extends React.Component<
               {this.props.element === "contact" && this.state.width <= 541 && (
                 <this.AboutH className="nav__side-text ab" />
               )}
-            </Link>
+            </TransitionLink>
           </div>
           <div className="nav__bottom">
             <div className="nav__bottom-back"></div>
-            <Link className="nav__bottom-link" to={this.state.bottom.to}>
+            <TransitionLink
+              className="nav__bottom-link"
+              to={
+                this.state.width > 541
+                  ? this.props.bottom.to
+                  : this.props.bottomS.to
+              }
+              exit={{
+                trigger: ({ exit, node }) => this.animateTopOut(),
+                length: 1.5,
+              }}
+              entry={{
+                trigger: ({ entry, node }) => this.animateBottomIn(node),
+                length: 1.5,
+                delay: 0.4,
+              }}
+            >
               {this.props.element === "projects" && this.state.width > 541 && (
                 <this.HomeH className="nav__bottom-text hm" />
               )}
@@ -185,7 +213,7 @@ export default class Nav extends React.Component<
               {this.props.element === "projects" && this.state.width <= 541 && (
                 <this.AboutH className="nav__side-text abb" />
               )}
-            </Link>
+            </TransitionLink>
           </div>
         </nav>
       </div>
