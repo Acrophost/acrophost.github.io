@@ -39,18 +39,24 @@ export default class Nav extends React.Component<
   }
 
   animateRightOut() {
+    const side = this.state.width > 2000 ? 4500 : 3500
+
     const t1 = gsap.timeline()
-    t1.to(".box", { duration: 1.5, x: 3500, opacity: 0 })
+    t1.to(".box", { duration: 1.5, x: side, opacity: 0 })
   }
 
   animateLeftOut() {
+    const side = this.state.width > 2000 ? -4500 : -3500
+
     const t1 = gsap.timeline()
-    t1.to(".box", { duration: 1.5, x: -3500, opacity: 0 })
+    t1.to(".box", { duration: 1.5, x: side, opacity: 0 })
   }
 
   animateTopOut() {
+    const top = this.state.width > 2000 ? -3500 : -2000
+
     const t1 = gsap.timeline()
-    t1.to(".box", { duration: 1.5, y: -2000, opacity: 0 })
+    t1.to(".box", { duration: 1.5, y: top, opacity: 0 })
   }
 
   animateLeftIn(node) {
@@ -85,6 +91,7 @@ export default class Nav extends React.Component<
   toggleNav = () => {
     const nav = document.getElementsByClassName("nav")[0]
     const button = document.getElementsByClassName("nav__button")[0]
+
     if (nav.classList.contains("nav_showed")) {
       nav.classList.remove("nav_showed")
       button.classList.remove("opened_nav")

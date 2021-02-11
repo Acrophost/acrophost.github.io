@@ -33,11 +33,13 @@ const About = () => {
       />
       <div className="box about-box">
         <div className="about__image-container">
-          <img
-            src={MyImage}
-            alt="Woman in red shirt"
-            className="about__image"
-          />
+          <div className="reveal">
+            <img
+              src={MyImage}
+              alt="Woman in red shirt"
+              className="about__image"
+            />
+          </div>
         </div>
         <div className="about__description">
           <Title className="about__title" />
